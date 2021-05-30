@@ -1,0 +1,7 @@
+node_modules
+dist
+*.db
+.env
+.authorized
+client_secret.json
+.vscode

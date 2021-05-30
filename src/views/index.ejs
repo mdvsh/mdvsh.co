@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="form-container">
+    <div class="action-heading">
+      <h1>shaw(r)ty</h1>
+      <a href="/shawrty/logout" class="logout-button">Logout</a>
+    </div>
+    <p>
+      Ideally, you should use the <code>https://</code> scheme for the target
+      URL.
+    </p>
+    <form action="/shawrty" method="POST">
+      <input placeholder="Shortlink" type="text" name="slug" id="slug" />
+
+      <input placeholder="Target URL" type="text" name="target" id="target" />
+
+      <button>Create</button>
+    </form>
+    <br />
+  </div>
+
+  <% if(profile_pic) { %>
+  <div class="profile">
+    <img src="<%= profile_pic %>" align="absmiddle" />
+    <span> <%= name %> (<%= email %> )</span>
+  </div>
+  <% } %>
+
+  <!-- Link table (Angad) -->
+  <table class="links">
+    <tr>
+      <th>Slug</th>
+      <th>URL</th>
+      <th></th>
+    </tr>
+    <% for(i in links) { %>
+    <tr>
+      <td><%= links[i].slug %></td>
+      <td>
+        <a href="<%= links[i].target %>" target="_blank">
+          <%= links[i].target %>
+        </a>
+      </td>
+      <td>
+        <form action="/delete/<%= links[i].id.toString() %>" method="post">
+          <button type="submit" class="del-btn">delete</button>
+        </form>
+      </td>
+    </tr>
+    <% }; %>
+  </table>
+</div>
+<br />

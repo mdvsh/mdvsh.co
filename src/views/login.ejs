@@ -1,0 +1,19 @@
+<div class="container" style="height: 100%;">
+  <div class="form-container">
+    <h1>Login to shawrty</h1>
+
+    <% if(error) { %>
+    <p class="form-error"><%= error %></p>
+    <% } %>
+    
+    <a href="<%= login_url %>" class="button">
+      <button>
+        Sign in with Google
+      </button>
+    </a>
+
+    <p class="disclaimer">
+      Can't login? Ping me on discord.
+    </p>
+  </div>
+</div>
